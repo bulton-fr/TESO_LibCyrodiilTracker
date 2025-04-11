@@ -133,11 +133,12 @@ function LibCyrodiilTracker.Manager:fireCstInfo()
         VOLENDRUNG_BASE = OBJECTIVE_VOLENDRUNG_BASE
     }
 
-    for cstKey, managerKey in pairs(LibCyrodiilTracker.CST) do
-        for cstName, data in pairs(LibCyrodiilTracker.CST[cstName]) do
+    for cstKey, cstList in pairs(LibCyrodiilTracker.CST) do
+
+        for cstName, data in pairs(cstList) do
             LibCyrodiilTracker.Manager.callbackManager:FireCallbacks(
                 LibCyrodiilTracker.Manager.callbackEvents.cstInfo,
-                managerKey,
+                self.TYPE[map[cstKey]], -- managerKey
                 cstName,
                 data
             )
@@ -158,7 +159,7 @@ function LibCyrodiilTracker.Manager:findAll(typeInfo, compareFct, ...)
     end
 
     for _, item in ipairs(self.list[catType][itemType]) do
-        if compareFct(self, item, unpack(arg)) == true then
+        if compareFct(self, item, ...) == true then
             table.insert(itemList, item)
         end
     end
@@ -167,7 +168,7 @@ function LibCyrodiilTracker.Manager:findAll(typeInfo, compareFct, ...)
 end
 
 function LibCyrodiilTracker.Manager:findBy(typeInfo, compareFct, ...)
-    local list = self:findAll(typeInfo, compareFct, unpack(arg))
+    local list = self:findAll(typeInfo, compareFct, ...)
 
     if #list == 1 then
         return list[1]
@@ -178,12 +179,12 @@ function LibCyrodiilTracker.Manager:findBy(typeInfo, compareFct, ...)
     return nil
 end
 
-function LibCyrodiilTracker.Manager:findById(itemId, typeInfo)
-    return self:findBy(typeInfo, self.compareFindById, itemId)
+function LibCyrodiilTracker.Manager:findByKeepId(itemId, typeInfo)
+    return self:findBy(typeInfo, self.compareFindByKeepId, itemId)
 end
 
-function LibCyrodiilTracker.Manager:compareFindById(item, itemId)
-    if item.id == itemId then
+function LibCyrodiilTracker.Manager:compareFindByKeepId(item, itemId)
+    if item.keepId == itemId then
         return true
     end
 

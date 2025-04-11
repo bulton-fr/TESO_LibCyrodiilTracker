@@ -19,7 +19,7 @@ function LibCyrodiilTracker:Initialise()
     self.ready = true
 end
 
-function LibCyrodiilTracker.loadData(force)
+function LibCyrodiilTracker:loadData(force)
     if self.loaded == true and force ~= true then
         return
     end

@@ -29,3 +29,7 @@ function LibCyrodiilTracker.ObjectiveItem.AbstractObjectiveItem:checkIsMe(manage
 
     return true
 end
+
+function LibCyrodiilTracker.ObjectiveItem.AbstractObjectiveItem:setParentItem(parentItem)
+    self.parentItem = parentItem
+end

@@ -30,6 +30,6 @@ function LibCyrodiilTracker.KeepItem.Resource:New(keepId, bgContext, keepType)
     return resource
 end
 
-function LibCyrodiilTracker.KeepItem.Outpost:onManagerLoadAll()
+function LibCyrodiilTracker.KeepItem.Resource:onManagerLoadAll()
     self:findFlagObjective()
 end

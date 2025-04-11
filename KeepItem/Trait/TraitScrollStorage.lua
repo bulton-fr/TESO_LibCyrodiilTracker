@@ -1,6 +1,6 @@
 LibCyrodiilTracker.KeepItem.Trait.TraitScrollStorage = {}
 
-function LibCyrodiilTracker.KeepItem.Trait.TraitScrollStorage:addScrollKey()
+function LibCyrodiilTracker.KeepItem.Trait.TraitScrollStorage:addScrollStorageKey()
     if self.scroll == nil then
         self.scroll = {}
     end
@@ -9,13 +9,17 @@ function LibCyrodiilTracker.KeepItem.Trait.TraitScrollStorage:addScrollKey()
 end
 
 function LibCyrodiilTracker.KeepItem.Trait.TraitScrollStorage:findScrollStorage()
-    local compareFct = function(scrollStorageItem)
-        if scrollStorageItem.keepId.id == self.id then
-            return true
-        else
-            return false
-        end
-    end
+    self.scroll.storage = self.Manager:findBy(
+        self.Manager.TYPE.OBJECTIVE_SCROLL_STORAGE,
+        LibCyrodiilTracker.KeepItem.Trait.TraitScrollStorage.compareScrollStorage,
+        self
+    )
+end
 
-    self.scroll.storage = self.Manager:findBy(self.Manager.TYPE.OBJECTIVE_SCROLL_STORAGE, compareFct)
+function LibCyrodiilTracker.KeepItem.Trait.TraitScrollStorage.compareScrollStorage(manager, scrollStorageItem, me)
+    if scrollStorageItem.keepId == me.keepId then
+        return true
+    else
+        return false
+    end
 end

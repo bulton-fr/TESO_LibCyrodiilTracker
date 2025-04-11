@@ -31,13 +31,18 @@ function LibCyrodiilTracker.ObjectiveItem.Volendrung:New(keepId, objectiveId, bg
 end
 
 function LibCyrodiilTracker.ObjectiveItem.Volendrung:onManagerLoadAll()
-    self:updateCarriedInfo()
-    self:updateDroppedInfo()
+    -- If Volendrung is not on the map, so not linked to a base
+    if self.base == nil then
+        return
+    end
+
+    self:findCarriedInfo()
+    self:findDroppedInfo()
     --Not for LFF state because we can't know it if we are not here when that occurs
 end
 
 function LibCyrodiilTracker.ObjectiveItem.Volendrung:findCarriedInfo()
-    self.carried.state = IsCarryableObjectiveCarriedByLocalPlayer(self.storageKeep.temple.keepId, self.objectiveId, self.bgCtx)
+    self.carried.state = IsCarryableObjectiveCarriedByLocalPlayer(self.base.keepId, self.objectiveId, self.bgCtx)
 
     if self.carried.state == false then
         self.carried.characterName = ""
@@ -53,7 +58,7 @@ function LibCyrodiilTracker.ObjectiveItem.Volendrung:findCarriedInfo()
         self.bgCtx
     )
 
-    self.carried.alliance, _ = GetCarryableObjectiveHoldingAllianceInfo(self.storageKeep.temple.keepId, self.objectiveId, self.bgCtx)
+    self.carried.alliance, _ = GetCarryableObjectiveHoldingAllianceInfo(self.base.keepId, self.objectiveId, self.bgCtx)
 end
 
 function LibCyrodiilTracker.ObjectiveItem.Volendrung:findDroppedInfo()

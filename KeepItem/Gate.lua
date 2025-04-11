@@ -25,16 +25,16 @@ function LibCyrodiilTracker.KeepItem.Gate:New(keepId, bgContext, keepType)
     return gate
 end
 
-function LibCyrodiilTracker.KeepItem.Temple:onManagerLoadAll()
+function LibCyrodiilTracker.KeepItem.Gate:onManagerLoadAll()
     self:findKeep()
     self:updateIsOpen()
 end
 
-function LibCyrodiilTracker.KeepItem.Keep:defineCstInfo(cstInfo)
+function LibCyrodiilTracker.KeepItem.Gate:defineCstInfo(cstInfo)
     self.cstKeep = cstInfo.keep
 end
 
-function LibCyrodiilTracker.KeepItem.Temple:findKeep()
+function LibCyrodiilTracker.KeepItem.Gate:findKeep()
     local keep = nil
 
     for _, keepCstName in ipairs(self.cstKeep) do
@@ -46,7 +46,7 @@ function LibCyrodiilTracker.KeepItem.Temple:findKeep()
     end
 end
 
-function LibCyrodiilTracker.KeepItem.Temple:updateIsOpen()
+function LibCyrodiilTracker.KeepItem.Gate:updateIsOpen()
     self.open = true
 
     for _, keep in ipairs(self.keep) do

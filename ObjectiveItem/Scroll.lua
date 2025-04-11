@@ -57,12 +57,12 @@ function LibCyrodiilTracker.ObjectiveItem.Scroll:onManagerLoadAll()
     self:findTemple()
     self:findCurrentStorage()
     --self:findLastStorage() -- Not existing data when loaded
-    self:updateCarriedInfo()
-    self:updateDroppedInfo()
+    self:findCarriedInfo()
+    self:findDroppedInfo()
 end
 
 function LibCyrodiilTracker.ObjectiveItem.Scroll:findTemple()
-    self.storageKeep.temple = self.Manager:findById(self.keepId, self.Manager.TYPE.KEEP_TEMPLE)
+    self.storageKeep.temple = self.Manager:findByKeepId(self.keepId, self.Manager.TYPE.KEEP_TEMPLE)
 end
 
 function LibCyrodiilTracker.ObjectiveItem.Scroll:findCurrentStorage()
@@ -71,7 +71,7 @@ function LibCyrodiilTracker.ObjectiveItem.Scroll:findCurrentStorage()
     if keepId == self.storageKeep.temple.keepId then
         self.storageKeep.current = self.storageKeep.temple
     else
-        self.storageKeep.current = self.Manager:findById(keepId, self.Manager.TYPE.KEEP_KEEP)
+        self.storageKeep.current = self.Manager:findByKeepId(keepId, self.Manager.TYPE.KEEP_KEEP)
     end
 
     if self.storageKeep.current ~= nil then

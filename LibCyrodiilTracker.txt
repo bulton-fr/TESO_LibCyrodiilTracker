@@ -7,6 +7,7 @@
 Initialise.lua
 Constants.lua
 Events.lua
+Manager.lua
 
 AbstractItem.lua
 KeepItem\AbstractKeepItem.lua
@@ -34,7 +35,6 @@ ObjectiveItem\ScrollStorage.lua
 ObjectiveItem\Volendrung.lua
 ObjectiveItem\VolendrungBase.lua
 
-Manager.lua
 Run.lua
 
 ;

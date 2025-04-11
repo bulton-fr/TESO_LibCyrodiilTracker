@@ -47,11 +47,11 @@ function LibCyrodiilTracker.KeepItem.Keep:onManagerLoadAll()
 end
 
 function LibCyrodiilTracker.KeepItem.Keep:findResource()
-    local resKeepIdFood = GetResourceKeepForKeep(self.id, RESOURCETYPE_FOOD)
-    local resKeepIdOre  = GetResourceKeepForKeep(self.id, RESOURCETYPE_ORE)
-    local resKeepIdWood = GetResourceKeepForKeep(self.id, RESOURCETYPE_WOOD)
+    local resKeepIdFood = GetResourceKeepForKeep(self.keepId, RESOURCETYPE_FOOD)
+    local resKeepIdOre  = GetResourceKeepForKeep(self.keepId, RESOURCETYPE_ORE)
+    local resKeepIdWood = GetResourceKeepForKeep(self.keepId, RESOURCETYPE_WOOD)
 
-    self.resourceList.food = self.Manager:findById(resKeepIdFood, self.Manager.TYPE.KEEP_RESOURCE)
-    self.resourceList.ore  = self.Manager:findById(resKeepIdOre, self.Manager.TYPE.KEEP_RESOURCE)
-    self.resourceList.wood = self.Manager:findById(resKeepIdWood, self.Manager.TYPE.KEEP_RESOURCE)
+    self.resourceList.food = self.Manager:findByKeepId(resKeepIdFood, self.Manager.TYPE.KEEP_RESOURCE)
+    self.resourceList.ore  = self.Manager:findByKeepId(resKeepIdOre, self.Manager.TYPE.KEEP_RESOURCE)
+    self.resourceList.wood = self.Manager:findByKeepId(resKeepIdWood, self.Manager.TYPE.KEEP_RESOURCE)
 end

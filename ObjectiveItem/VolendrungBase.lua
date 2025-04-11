@@ -15,11 +15,11 @@ function LibCyrodiilTracker.ObjectiveItem.VolendrungBase:New(keepId, objectiveId
     return volendrungBase
 end
 
-function LibCyrodiilTracker.ObjectiveItem.Scroll:onManagerLoadAll()
+function LibCyrodiilTracker.ObjectiveItem.VolendrungBase:onManagerLoadAll()
     self:findVolendrung()
 end
 
-function LibCyrodiilTracker.ObjectiveItem.Scroll:findVolendrung()
+function LibCyrodiilTracker.ObjectiveItem.VolendrungBase:findVolendrung()
     if self.controlState ~= OBJECTIVE_CONTROL_STATE_UNKNOWN then
         self.volendrung = self.Manager:obtainVolendrung()
         self.volendrung.base = self

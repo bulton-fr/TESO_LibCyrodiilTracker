@@ -9,18 +9,26 @@ function LibCyrodiilTracker.KeepItem.Trait.TraitScroll:addScrollKey()
 end
 
 function LibCyrodiilTracker.KeepItem.Trait.TraitScroll:findScrollItem()
-    local compareFct = function(scrollItem)
-        if scrollItem.currentKeep == nil then
-            return false
-        end
+    self.scroll.item = self.Manager:findBy(
+        self.Manager.TYPE.OBJECTIVE_SCROLL,
+        LibCyrodiilTracker.KeepItem.Trait.TraitScroll.compareScrollItem,
+        self
+    )
 
-        if scrollItem.currentKeep.itemType == self.itemType and scrollItem.currentKeep.id == self.id then
-            return true
-        else
-            return false
-        end
+    -- Only security but should not happens
+    if self.scroll.storage ~= nil then
+        self.scroll.storage.scroll = self.scroll.item
+    end
+end
+
+function LibCyrodiilTracker.KeepItem.Trait.TraitScroll.compareScrollItem(manager, scrollItem, me)
+    if scrollItem.currentKeep == nil then
+        return false
     end
 
-    self.scroll.item = self.Manager:findBy(self.Manager.TYPE.OBJECTIVE_SCROLL, compareFct)
-    self.scroll.storage.scroll = self.scroll.item
+    if scrollItem.currentKeep.itemType == me.itemType and scrollItem.currentKeep.keepId == me.keepId then
+        return true
+    else
+        return false
+    end
 end

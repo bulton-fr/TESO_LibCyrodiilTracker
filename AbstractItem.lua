@@ -35,11 +35,11 @@ function LibCyrodiilTracker.AbstractItem:addGlobalEvent()
     )
 end
 
-function LibCyrodiilTracker.KeepItem.Keep:setCstName(cstName)
+function LibCyrodiilTracker.AbstractItem:setCstName(cstName)
     self.cstName = cstName
 end
 
-function LibCyrodiilTracker.KeepItem.Keep:setCstAlias(cstAlias)
+function LibCyrodiilTracker.AbstractItem:setCstAlias(cstAlias)
     self.cstAlias = cstAlias
 end
 
@@ -48,6 +48,10 @@ function LibCyrodiilTracker.AbstractItem:addManagerLoadAllEvent()
 
     self.Manager.callbackManager:RegisterCallback(
         self.Manager.callbackEvents.loadAll,
-        function() item.onManagerLoadAll(item) end
+        function()
+            if item['onManagerLoadAll'] ~= nil then
+                item.onManagerLoadAll(item)
+            end
+        end
     )
 end

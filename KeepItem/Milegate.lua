@@ -19,8 +19,8 @@ function LibCyrodiilTracker.KeepItem.Milegate:New(keepId, bgContext, keepType)
 
     setmetatable(milegate, self)
 
-    bridge:addPassableKey()
-    bridge:addGlobalEvent()
+    milegate:addPassableKey()
+    milegate:addGlobalEvent()
 
     return milegate
 end
