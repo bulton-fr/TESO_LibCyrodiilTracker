@@ -1,0 +1,2 @@
+EVENT_MANAGER:RegisterForEvent("LibCyrodiilTrackerAddonLoad", EVENT_ADD_ON_LOADED, LibCyrodiilTracker.Events.onLoaded)
+EVENT_MANAGER:RegisterForEvent("LibCyrodiilTrackerScreenLoad", EVENT_PLAYER_ACTIVATED, LibCyrodiilTracker.Events.onLoadScreen)
