@@ -6,6 +6,10 @@ LibCyrodiilTracker.ready      = false
 LibCyrodiilTracker.loaded     = false
 LibCyrodiilTracker.inCyrodiil = false
 
+LibCyrodiilTracker.KeepItem       = {}
+LibCyrodiilTracker.KeepItem.Trait = {}
+LibCyrodiilTracker.ObjectiveItem  = {}
+
 function LibCyrodiilTracker:Initialise()
     if IsInCyrodiil() == true then
         self.inCyrodiil = true
@@ -21,7 +25,7 @@ function LibCyrodiilTracker.loadData(force)
     end
 
     self.loaded = false
-    -- @TODO load all here
+    LibCyrodiilTracker.Manager:loadAll()
     self.loaded = true
 end
 

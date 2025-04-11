@@ -5,7 +5,36 @@
 ## APIVersion: 101045
 
 Initialise.lua
+Constants.lua
 Events.lua
+
+AbstractItem.lua
+KeepItem\AbstractKeepItem.lua
+KeepItem\Trait\TraitFlag.lua
+KeepItem\Trait\TraitGuildName.lua
+KeepItem\Trait\TraitPassable.lua
+KeepItem\Trait\TraitScroll.lua
+KeepItem\Trait\TraitScrollStorage.lua
+KeepItem\Trait\TraitTravelLink.lua
+KeepItem\Trait\TraitUnderAttack.lua
+KeepItem\Base.lua
+KeepItem\Bridge.lua
+KeepItem\Gate.lua
+KeepItem\Keep.lua
+KeepItem\Milegate.lua
+KeepItem\Outpost.lua
+KeepItem\Resource.lua
+KeepItem\Temple.lua
+KeepItem\Town.lua
+
+ObjectiveItem\AbstractObjectiveItem.lua
+ObjectiveItem\Flag.lua
+ObjectiveItem\Scroll.lua
+ObjectiveItem\ScrollStorage.lua
+ObjectiveItem\Volendrung.lua
+ObjectiveItem\VolendrungBase.lua
+
+Manager.lua
 Run.lua
 
 ;
