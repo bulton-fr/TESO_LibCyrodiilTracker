@@ -7,20 +7,20 @@ LibCyrodiilTracker.ObjectiveItem.Scroll.__index = LibCyrodiilTracker.ObjectiveIt
 function LibCyrodiilTracker.ObjectiveItem.Scroll:New(keepId, objectiveId, bgContext, objectiveType)
     local scroll = self:obtainBaseItem(keepId, objectiveId, bgContext, objectiveType)
 
-    scroll.shortname = ""
-    scroll.storageKeep   = {
+    scroll.shortname   = ""
+    scroll.storageKeep = {
         temple  = nil,
         last    = nil, -- @TODO : add last keep's alliance when captured
         current = nil,
-    },
-    scroll.carried       = {
+    }
+    scroll.carried     = {
         state         = nil,
         characterName = "",
         displayName   = "",
         alliance      = nil,
         startedAt     = nil
-    },
-    scroll.dropped       = {
+    }
+    scroll.dropped     = {
         state     = nil,
         startedAt = nil
     }

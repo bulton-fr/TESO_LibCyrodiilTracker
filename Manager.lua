@@ -18,7 +18,7 @@ LibCyrodiilTracker.Manager.TYPE = {
     OBJECTIVE_FLAG            = {cat = 'objective', type = 'flag'},
     OBJECTIVE_SCROLL          = {cat = 'objective', type = 'scroll'},
     OBJECTIVE_SCROLL_STORAGE  = {cat = 'objective', type = 'scrollStorage'},
-    OBJECTIVE_VOLENDRUNG_BASE = {cat = 'objective', type = 'volendrungBase'}
+    OBJECTIVE_VOLENDRUNG_BASE = {cat = 'objective', type = 'volendrungBase'},
     OBJECTIVE_VOLENDRUNG      = {cat = 'objective', type = 'volendrung'}
 }
 
@@ -37,8 +37,8 @@ LibCyrodiilTracker.Manager.list = {
     objective = {
         flag           = {},
         scroll         = {},
-        scrollStorage  = {};
-        volendrungBase = {}
+        scrollStorage  = {},
+        volendrungBase = {},
         volendrung     = {}
     }
 }
@@ -158,7 +158,7 @@ function LibCyrodiilTracker.Manager:findAll(typeInfo, compareFct, ...)
     end
 
     for _, item in ipairs(self.list[catType][itemType]) do
-        if compareFct(item, unpack(arg)) == true then
+        if compareFct(self, item, unpack(arg)) == true then
             table.insert(itemList, item)
         end
     end
@@ -171,7 +171,7 @@ function LibCyrodiilTracker.Manager:findBy(typeInfo, compareFct, ...)
 
     if #list == 1 then
         return list[1]
-    elseif #list > 1
+    elseif #list > 1 then
         return false --Should not happens
     end
 
@@ -179,7 +179,7 @@ function LibCyrodiilTracker.Manager:findBy(typeInfo, compareFct, ...)
 end
 
 function LibCyrodiilTracker.Manager:findById(itemId, typeInfo)
-    return self:findBy(typeInfo, self:compareFindById, itemId)
+    return self:findBy(typeInfo, self.compareFindById, itemId)
 end
 
 function LibCyrodiilTracker.Manager:compareFindById(item, itemId)
@@ -191,7 +191,7 @@ function LibCyrodiilTracker.Manager:compareFindById(item, itemId)
 end
 
 function LibCyrodiilTracker.Manager:findByCstName(itemCstName, typeInfo)
-    return self:findBy(typeInfo, self:compareFindByCstName, itemCstName)
+    return self:findBy(typeInfo, self.compareFindByCstName, itemCstName)
 end
 
 function LibCyrodiilTracker.Manager:compareFindByCstName(item, itemCstName)

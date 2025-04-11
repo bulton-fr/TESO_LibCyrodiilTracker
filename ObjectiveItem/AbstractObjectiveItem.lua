@@ -10,9 +10,9 @@ function LibCyrodiilTracker.ObjectiveItem.AbstractObjectiveItem:obtainBaseItem(k
     local objName, _, objCtrlState = GetObjectiveInfo(keepId, objectiveId, bgContext)
 
     item.objectiveId  = objectiveId
-    item.controlState = objCtrlState,
-    item.controlEvent = GetLastObjectiveControlEvent(keepId, objectiveId, bgContext),
-    item.parentItem   = nil, --Defined from parent
+    item.controlState = objCtrlState
+    item.controlEvent = GetLastObjectiveControlEvent(keepId, objectiveId, bgContext)
+    item.parentItem   = nil --Defined from parent
     item.name         = objName
 
     return item

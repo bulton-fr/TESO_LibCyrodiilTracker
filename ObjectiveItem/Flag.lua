@@ -13,7 +13,7 @@ function LibCyrodiilTracker.ObjectiveItem.Flag:New(keepId, objectiveId, bgContex
 		--@TODO TO CHECK
 		owner     = GetCaptureAreaObjectiveOwner(keepId, objectiveId, bgContext),
 		influence = influenceAlliance
-	},
+	}
 	flag.percent  = nil
 	flag.captured = IsCaptureAreaObjectiveCaptured(keepId, objectiveId, bgContext)
 

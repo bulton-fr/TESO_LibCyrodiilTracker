@@ -8,15 +8,15 @@ function LibCyrodiilTracker.ObjectiveItem.Volendrung:New(keepId, objectiveId, bg
     local volendrung = self:obtainBaseItem(keepId, objectiveId, bgContext, objectiveType)
 
     volendrung.base    = nil
-    volendrung.popAt   = nil,
-    volendrung.lff     = nil, --Looking For Faction
+    volendrung.popAt   = nil
+    volendrung.lff     = nil --Looking For Faction
     volendrung.carried = {
         state         = nil,
         characterName = "",
         displayName   = "",
         alliance      = nil,
         startedAt     = nil
-    },
+    }
     volendrung.dropped = {
         state     = nil,
         startedAt = nil
