@@ -13,7 +13,7 @@ LibCyrodiilTracker.ObjectiveItem  = {}
 function LibCyrodiilTracker:Initialise()
     if IsInCyrodiil() == true then
         self.inCyrodiil = true
-        self.loadData()
+        self:loadData()
     end
 
     self.ready = true

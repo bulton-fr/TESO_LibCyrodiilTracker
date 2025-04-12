@@ -122,19 +122,18 @@ end
 
 function LibCyrodiilTracker.Manager:fireCstInfo()
     local map = {
-        KEEP            = KEEP_KEEP,
-        BASE            = KEEP_BASE,
-        TEMPLE          = KEEP_TEMPLE,
-        GATE            = KEEP_GATE,
-        OUTPOST         = KEEP_OUTPOST,
-        TOWN            = KEEP_TOWN,
-        BRIDGE          = KEEP_BRIDGE,
-        MILEGATE        = KEEP_MILEGATE,
-        VOLENDRUNG_BASE = OBJECTIVE_VOLENDRUNG_BASE
+        KEEP            = "KEEP_KEEP",
+        BASE            = "KEEP_BASE",
+        TEMPLE          = "KEEP_TEMPLE",
+        GATE            = "KEEP_GATE",
+        OUTPOST         = "KEEP_OUTPOST",
+        TOWN            = "KEEP_TOWN",
+        BRIDGE          = "KEEP_BRIDGE",
+        MILEGATE        = "KEEP_MILEGATE",
+        VOLENDRUNG_BASE = "OBJECTIVE_VOLENDRUNG_BASE"
     }
 
     for cstKey, cstList in pairs(LibCyrodiilTracker.CST) do
-
         for cstName, data in pairs(cstList) do
             LibCyrodiilTracker.Manager.callbackManager:FireCallbacks(
                 LibCyrodiilTracker.Manager.callbackEvents.cstInfo,

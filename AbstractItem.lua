@@ -18,7 +18,7 @@ function LibCyrodiilTracker.AbstractItem:addGlobalEvent()
     local item = self
 
     self.Manager.callbackManager:RegisterCallback(
-        self.Manager.callbackEvents.defineCstInfo,
+        self.Manager.callbackEvents.cstInfo,
         function(managerKey, cstName, cstInfo)
             if self:checkIsMe(managerKey, cstInfo.id) == true then
                 self:setCstName(cstName)

@@ -38,7 +38,7 @@ function LibCyrodiilTracker.KeepItem.Gate:findKeep()
     local keep = nil
 
     for _, keepCstName in ipairs(self.cstKeep) do
-        keep = self.Manager:findByCstName(keepCstName)
+        keep = self.Manager:findByCstName(keepCstName, self.Manager.TYPE.KEEP_KEEP)
 
         if keep ~= nil and keep ~= false then
             table.insert(self.keep, keep)
